@@ -2,22 +2,22 @@
     "test1": {
         "checkpoints": [
             {
-                "steps": 43974,
-                "file_path": "results\\ppo\\test1\\test1-43974.onnx",
-                "reward": null,
-                "creation_time": 1731223106.6011105,
+                "steps": 20411,
+                "file_path": "results\\ppo\\test1\\test1-20411.onnx",
+                "reward": 1.0,
+                "creation_time": 1731233735.3123205,
                 "auxillary_file_paths": [
-                    "results\\ppo\\test1\\test1-43974.pt"
+                    "results\\ppo\\test1\\test1-20411.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 43974,
+            "steps": 20411,
             "file_path": "results\\ppo\\test1.onnx",
-            "reward": null,
-            "creation_time": 1731223106.6011105,
+            "reward": 1.0,
+            "creation_time": 1731233735.3123205,
             "auxillary_file_paths": [
-                "results\\ppo\\test1\\test1-43974.pt"
+                "results\\ppo\\test1\\test1-20411.pt"
             ]
         }
     },

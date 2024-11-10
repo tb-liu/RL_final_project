@@ -9,7 +9,15 @@ public class AgentScript : Agent
     public Vector3 startPos = new Vector3(0, 2, 0);
 
     private Rigidbody rBody;
-    public Transform target;
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the agent has collided with the target
+        if (other.gameObject.CompareTag("Target"))  // Ensure the target has the "Target" tag
+        {
+            SetReward(1.0f);  // Reward for reaching the target
+            EndEpisode();  // End the episode
+        }
+    }
     public override void Initialize()
     {
         base.Initialize();
@@ -26,8 +34,8 @@ public class AgentScript : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         // Observe the agent's position and the relative position to the target
-        sensor.AddObservation(transform.localPosition);
-        sensor.AddObservation(target.localPosition - transform.localPosition);
+        //sensor.AddObservation(transform.localPosition);
+        //sensor.AddObservation(target.localPosition - transform.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -44,13 +52,6 @@ public class AgentScript : Agent
         // Apply rotation
         transform.Rotate(0, rotate * rotationSpeed * Time.deltaTime, 0);
 
-        // Check if the agent has reached the target
-        float distanceToTarget = Vector3.Distance(transform.localPosition, target.localPosition);
-        if (distanceToTarget < 1.0f)
-        {
-            SetReward(1.0f);  // Reward for reaching the target
-            EndEpisode();
-        }
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
