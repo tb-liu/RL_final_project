@@ -26,5 +26,6 @@ Builds/
 .vsconfig
 .DS_Store
 Thumbs.db
+.vs/
 
 results/
