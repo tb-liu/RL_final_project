@@ -23,18 +23,6 @@ Builds/
 *.unityproj
 *.sln
 *.sln.*
+.vsconfig
 .DS_Store
 Thumbs.db
-
-# Visual Studio
-.vscode/
-.vs/
-*.csproj
-*.unityproj
-*.sln
-*.suo
-*.user
-*.userprefs
-*.tmp
-*.pidb
-*.svd
