@@ -34,8 +34,8 @@ public class AgentScript : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         // Observe the agent's position and the relative position to the target
-        //sensor.AddObservation(transform.localPosition);
-        //sensor.AddObservation(target.localPosition - transform.localPosition);
+        sensor.AddObservation(transform.localPosition);
+        sensor.AddObservation(transform.localRotation);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
