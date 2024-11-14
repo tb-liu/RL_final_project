@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Target
   - Agent
+  - Bullet
   layers:
   - Default
   - TransparentFX

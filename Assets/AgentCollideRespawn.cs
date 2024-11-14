@@ -1,8 +1,5 @@
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-public class Respawn : MonoBehaviour
+public class AgentCollideRespawn : MonoBehaviour
 {
     public GameObject respawnArea;
     private void Start()
@@ -10,9 +7,9 @@ public class Respawn : MonoBehaviour
         MoveTargetToRandomPosition();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Agent")) 
+        if (collision.gameObject.CompareTag("Agent")) 
         {
             MoveTargetToRandomPosition();
         }
