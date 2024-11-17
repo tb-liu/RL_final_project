@@ -244,6 +244,7 @@ MonoBehaviour:
   m_DetectableTags:
   - Wall
   - Target
+  - Agent
   m_RaysPerDirection: 30
   m_MaxRayDegrees: 45
   m_SphereCastRadius: 0.5
@@ -286,8 +287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 1
-    NumStackedVectorObservations: 1
+    VectorObservationSize: 6
+    NumStackedVectorObservations: 6
     m_ActionSpec:
       m_NumContinuousActions: 3
       BranchSizes: 02000000
@@ -295,9 +296,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 4c14716a90d9e4945aa51ee696ab0a13, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: ShootingCompeteAgent
   TeamId: 1
   m_UseChildSensors: 1
@@ -1426,8 +1427,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 1
-    NumStackedVectorObservations: 1
+    VectorObservationSize: 6
+    NumStackedVectorObservations: 6
     m_ActionSpec:
       m_NumContinuousActions: 3
       BranchSizes: 02000000
@@ -1435,9 +1436,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 4c14716a90d9e4945aa51ee696ab0a13, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 2
   m_BehaviorName: ShootingCompeteAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -1475,6 +1476,7 @@ MonoBehaviour:
   m_DetectableTags:
   - Wall
   - Target
+  - Agent
   m_RaysPerDirection: 30
   m_MaxRayDegrees: 45
   m_SphereCastRadius: 0.5

@@ -38,14 +38,14 @@ public class BulletCompete : MonoBehaviour
             hitAgent = collision.gameObject.GetComponent<ShootingCompeteAgent>();
             if (hitAgent) 
             {
-                hitAgent.SetReward(-4f);
+                hitAgent.SetReward(-3f);
                 hitAgent.EndEpisode();
             }
             onHit!.Invoke(4.0f);
         }
         else 
         {
-            onMiss!.Invoke(-0.25f);
+            onMiss!.Invoke(-0.15f);
         }
         Destroy(gameObject);
     }
