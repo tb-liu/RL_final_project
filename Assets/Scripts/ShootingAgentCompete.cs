@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
-public class ShootingAgent : Agent
+public class ShootingCompeteAgent : Agent
 {
     
     public float moveForce = 0.5f;
@@ -12,21 +12,13 @@ public class ShootingAgent : Agent
     private Rigidbody rBody;
 
     public int MaxHit = 4; // hit four times then end the episode
-    private int hitCount = 0, missCount = 0;
     public int MaxMiss = 10; // missed 10 times then end
 
     public GameObject bulletPrefab;      // Reference to the bullet prefab
+    public GameObject respawnArea;       // Respawn area
     public float fireRate = 0.1f;        // Time between shots
     private float nextFireTime = 0f;     // Controls cooldown between shots
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    // Check if the agent has collided with the target
-    //    if (other.gameObject.CompareTag("Target"))  // Ensure the target has the "Target" tag
-    //    {
-    //        SetReward(1.0f);  // Reward for reaching the target
-    //        EndEpisode();  // End the episode
-    //    }
-    //}
+
     public override void Initialize()
     {
         base.Initialize();
@@ -35,17 +27,13 @@ public class ShootingAgent : Agent
     public override void OnEpisodeBegin()
     {
         // Reset agent's position and rotation at the start of each episode
-        transform.localPosition = startPos;
+        MoveTargetToRandomPosition();
         rBody.angularVelocity = Vector3.zero;
         rBody.linearVelocity = Vector3.zero;
-        hitCount = 0; missCount = 0;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // moved since the last observation
-        //Vector3 moved = transform.localPosition - previousPosition;
-        //sensor.AddObservation(moved);
         sensor.AddObservation(transform.localRotation);
     }
 
@@ -79,7 +67,7 @@ public class ShootingAgent : Agent
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, transform.rotation);
 
         // Get the bullet script component and initialize it with the forward direction
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        BulletCompete bulletScript = bullet.GetComponent<BulletCompete>();
         bulletScript.Initialize(transform.forward, RewardOnHit, PenalizeOnMiss);
     }
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -95,17 +83,26 @@ public class ShootingAgent : Agent
         var discreteActions = actionsOut.DiscreteActions;
         discreteActions[0] = Input.GetKey(KeyCode.F) ? 1 : 0; // Shoot
     }
-    public void RewardOnHit()
+    public void RewardOnHit(float reward)
     {
-        ++hitCount;
-        AddReward(1.0f); // Give a reward for hitting the target
-        if (hitCount >= MaxHit) EndEpisode();
+        AddReward(reward);
+        EndEpisode();
     }
 
-    public void PenalizeOnMiss() 
+    public void PenalizeOnMiss(float reward) 
     {
-        ++missCount;
-        AddReward(-0.5f);
-        if (missCount >= MaxMiss) EndEpisode();
+        AddReward(reward);
+    }
+
+    void MoveTargetToRandomPosition()
+    {
+        BoxCollider area = respawnArea.GetComponent<BoxCollider>();
+        Vector3 point = new Vector3(
+            Random.Range(-area.size.x / 2, area.size.x / 2),
+            0.5f,
+            Random.Range(-area.size.z / 2, area.size.z / 2)
+        ) + area.center + respawnArea.transform.position;
+
+        transform.position = point;
     }
 }
