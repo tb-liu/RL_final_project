@@ -1381,9 +1381,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: d7fcb41eba3ec0b4aabdf0318ed54a72, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: ShootingAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -1455,6 +1455,8 @@ MonoBehaviour:
   rotationSpeed: 100
   startPos: {x: -2.043617, y: 0.25, z: -6.440001}
   firePoint: {fileID: 2508694332266242442}
+  MaxHit: 4
+  MaxMiss: 10
   bulletPrefab: {fileID: 5876953658280712465, guid: 803533a38887ac64faf050fab2fe5e04, type: 3}
   fireRate: 0.25
 --- !u!1001 &2508694332266242441
