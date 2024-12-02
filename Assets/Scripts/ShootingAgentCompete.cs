@@ -36,6 +36,7 @@ public class ShootingCompeteAgent : Agent
         MoveTargetToRandomPosition();
         rBody.angularVelocity = Vector3.zero;
         rBody.linearVelocity = Vector3.zero;
+        episodeTime = 0;
     }
 
     public override void CollectObservations(VectorSensor sensor)

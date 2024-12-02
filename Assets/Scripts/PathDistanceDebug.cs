@@ -7,6 +7,7 @@ public class PathDistanceDebugger : MonoBehaviour
     public Transform agent2; // Reference to the second agent
 
     private NavMeshAgent navMeshAgent; // For path calculation
+    private float pathDistance; // Store the calculated path distance
 
     void Start()
     {
@@ -20,10 +21,10 @@ public class PathDistanceDebugger : MonoBehaviour
     void Update()
     {
         // Calculate the path distance between agent1 and agent2
-        float pathDistance = CalculatePathDistance(agent1.position, agent2.position);
+        pathDistance = CalculatePathDistance(agent1.position, agent2.position);
 
         // Print debug info
-        Debug.Log($"Path distance between {agent1.name} and {agent2.name}: {pathDistance} units");
+        // Debug.Log($"Path distance between {agent1.name} and {agent2.name}: {pathDistance} units");
     }
 
     private float CalculatePathDistance(Vector3 startPosition, Vector3 targetPosition)
@@ -63,5 +64,11 @@ public class PathDistanceDebugger : MonoBehaviour
                 Gizmos.DrawLine(path.corners[i - 1], path.corners[i]);
             }
         }
+    }
+
+    void OnGUI()
+    {
+        // Display the path distance on the screen
+        GUI.Label(new Rect(10, 10, 300, 20), $"Path Distance: {pathDistance:F2} units");
     }
 }
