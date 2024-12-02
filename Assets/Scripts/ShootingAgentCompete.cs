@@ -2,6 +2,7 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
+using UnityEngine.AI;
 public class ShootingCompeteAgent : Agent
 {
     
@@ -67,7 +68,7 @@ public class ShootingCompeteAgent : Agent
 
 
         // Calculate distance to the opponent
-        float distanceToOpponent = Vector3.Distance(transform.position, opponent.position);
+        float distanceToOpponent = CalculatePathDistance(transform.position, opponent.position);
 
         // Check if agent is within the neutral zone
         if (distanceToOpponent <= neutralRange)
@@ -143,5 +144,25 @@ public class ShootingCompeteAgent : Agent
         ) + area.center + respawnArea.transform.position;
 
         transform.position = point;
+    }
+
+    public float CalculatePathDistance(Vector3 startPosition, Vector3 targetPosition)
+    {
+        NavMeshPath path = new NavMeshPath();
+
+        // Calculate the path between two points on the NavMesh
+        if (NavMesh.CalculatePath(startPosition, targetPosition, NavMesh.AllAreas, path))
+        {
+            // Sum up the distances between path corners
+            float distance = 0f;
+            for (int i = 1; i < path.corners.Length; i++)
+            {
+                distance += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+            }
+            return distance;
+        }
+
+        // Return a large value if no path exists
+        return float.MaxValue;
     }
 }
