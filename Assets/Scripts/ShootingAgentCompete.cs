@@ -19,6 +19,11 @@ public class ShootingCompeteAgent : Agent
     public float fireRate = 0.1f;        // Time between shots
     private float nextFireTime = 0f;     // Controls cooldown between shots
 
+    public Transform opponent;
+    public float neutralRange = 20f;
+    private float previousDistanceToOpponent = float.MaxValue;
+    private float episodeTime = 0f; // Timer for the episode
+    public float maxEpisodeTime = 60f; // Max allowed time for an episode
     public override void Initialize()
     {
         base.Initialize();
@@ -60,6 +65,39 @@ public class ShootingCompeteAgent : Agent
             nextFireTime = Time.time + fireRate;
         }
 
+
+        // Calculate distance to the opponent
+        float distanceToOpponent = Vector3.Distance(transform.position, opponent.position);
+
+        // Check if agent is within the neutral zone
+        if (distanceToOpponent <= neutralRange)
+        {
+            // Neutral range: Encourage staying in this range with a small reward
+            AddReward(0.01f);
+        }
+        else
+        {
+            // Outside neutral range: Encourage getting closer
+            if (distanceToOpponent < previousDistanceToOpponent)
+            {
+                AddReward(0.02f); // Larger reward for moving closer to the neutral zone
+            }
+            else
+            {
+                AddReward(-0.01f); // Small penalty for moving further away
+            }
+        }
+
+        // Update previous distance
+        previousDistanceToOpponent = distanceToOpponent;
+
+        // Check for episode timeout (existing logic)
+        episodeTime += Time.deltaTime;
+        if (episodeTime >= maxEpisodeTime)
+        {
+            SetReward(-5.0f); // Penalize timeout
+            EndEpisode();
+        }
     }
 
     private void Shoot()

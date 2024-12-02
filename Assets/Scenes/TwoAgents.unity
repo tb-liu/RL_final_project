@@ -330,6 +330,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5876953658280712465, guid: 2b8010486ee41a64f9ec12d3ca83658c, type: 3}
   respawnArea: {fileID: 626734870}
   fireRate: 0.25
+  opponent: {fileID: 2115577257}
+  neutralRange: 20
+  maxEpisodeTime: 30
 --- !u!54 &189021992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2006,6 +2009,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5876953658280712465, guid: 2b8010486ee41a64f9ec12d3ca83658c, type: 3}
   respawnArea: {fileID: 1612947241}
   fireRate: 0.25
+  opponent: {fileID: 189021987}
+  neutralRange: 20
+  maxEpisodeTime: 30
 --- !u!1001 &2508694332266242441
 PrefabInstance:
   m_ObjectHideFlags: 0
