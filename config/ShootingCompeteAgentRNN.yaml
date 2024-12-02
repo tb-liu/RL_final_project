@@ -26,6 +26,6 @@ behaviors:
       save_steps: 50000
       team_change: 100000
       swap: 0.5
-    max_steps: 1000000
+    max_steps: 500000
     time_horizon: 64
     summary_freq: 10000
