@@ -41,7 +41,7 @@ public class BulletCompete : MonoBehaviour
                 hitAgent.SetReward(-3f);
                 hitAgent.EndEpisode();
             }
-            onHit!.Invoke(4.0f);
+            onHit!.Invoke(6.0f);
         }
         else 
         {
