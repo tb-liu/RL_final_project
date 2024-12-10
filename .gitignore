@@ -29,3 +29,5 @@ Thumbs.db
 .vs/
 
 results/
+Assets/ML-Agents/Timers/AgentCollide_timers.json.meta
+Assets/ML-Agents/Timers/TwoAgents_timers.json
