@@ -118,7 +118,7 @@ public class ShootingCompeteAgent : Agent
         // Use arrow keys for testing: forward/backward and left/right for rotation
         continuousActions[0] = Input.GetAxis("Vertical");  // Forward/Backward movement
         continuousActions[1] = Input.GetAxis("Horizontal"); // Left/Right movement
-        continuousActions[2] = Input.GetKey(KeyCode.Q) ? -1 : (Input.GetKey(KeyCode.E) ? 1 : 0); // Rotation with Q and E keys
+        continuousActions[2] = Input.GetKey(KeyCode.J) ? -1 : (Input.GetKey(KeyCode.K) ? 1 : 0); // Rotation with Q and E keys
 
 
         var discreteActions = actionsOut.DiscreteActions;
