@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e585a575ee72f754584bd3cb79481452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnArea: {fileID: 0}
+  respawnArea: {fileID: 1612947241}
 --- !u!1 &63538268
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e585a575ee72f754584bd3cb79481452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnArea: {fileID: 0}
+  respawnArea: {fileID: 1612947241}
 --- !u!1 &194537653
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721658c81d5be4f44a8021a43d8dbb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agents: []
 --- !u!1 &229194676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e585a575ee72f754584bd3cb79481452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnArea: {fileID: 0}
+  respawnArea: {fileID: 1612947241}
 --- !u!1 &1612947241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,6 +2301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 721658c81d5be4f44a8021a43d8dbb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agents: []
 --- !u!4 &2077144279
 Transform:
   m_ObjectHideFlags: 0
@@ -2674,6 +2676,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target
       objectReference: {fileID: 0}
+    - target: {fileID: 3066972370687782759, guid: 8f6cd7e87c9ec2b49bfe769dfcd875de, type: 3}
+      propertyPath: respawnArea
+      value: 
+      objectReference: {fileID: 1612947241}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
