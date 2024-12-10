@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 36950e434593e0540a9690cf1ff57710
+  - enabled: 1
     path: Assets/Scenes/AgentCollide.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Shooting.unity
+    guid: ac93513fce01e904dbcb6478ce812f0d
+  - enabled: 1
+    path: Assets/Scenes/TwoAgents.unity
+    guid: 7c9af376d70f8b1499393c15722dc6d6
+  - enabled: 1
+    path: Assets/Scenes/TwoAgentsComplex.unity
+    guid: b057267db1db01f4a80a5e3c73591033
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
