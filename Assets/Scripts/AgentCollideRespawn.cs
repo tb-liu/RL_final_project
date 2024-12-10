@@ -7,15 +7,15 @@ public class AgentCollideRespawn : MonoBehaviour
         MoveTargetToRandomPosition();
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Agent")) 
-        {
-            MoveTargetToRandomPosition();
-        }
-    }
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Agent")) 
+    //    {
+    //        MoveTargetToRandomPosition();
+    //    }
+    //}
 
-    void MoveTargetToRandomPosition()
+    public void MoveTargetToRandomPosition()
     {
         BoxCollider area = respawnArea.GetComponent<BoxCollider>();
         Vector3 point = new Vector3(

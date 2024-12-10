@@ -122,7 +122,7 @@ public class ShootingCompeteAgent : Agent
 
 
         var discreteActions = actionsOut.DiscreteActions;
-        discreteActions[0] = Input.GetKey(KeyCode.F) ? 1 : 0; // Shoot
+        discreteActions[0] = Input.GetKey(KeyCode.Space) ? 1 : 0; // Shoot
     }
     public void RewardOnHit(float reward)
     {

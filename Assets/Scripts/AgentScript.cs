@@ -14,6 +14,7 @@ public class AgentScript : Agent
         // Check if the agent has collided with the target
         if (other.gameObject.CompareTag("Target"))  // Ensure the target has the "Target" tag
         {
+            other.gameObject.GetComponent<AgentCollideRespawn>()?.MoveTargetToRandomPosition();
             SetReward(1.0f);  // Reward for reaching the target
             EndEpisode();  // End the episode
         }
